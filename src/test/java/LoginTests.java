@@ -1,15 +1,19 @@
 import Pages.LoginPage;
 import Pages.MainPage;
+import Pages.SıfremıUnuttumPage;
 import base.BaseTest;
+import base.Browser;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import java.util.List;
 import org.testng.annotations.Test;
 
+
 public class LoginTests extends BaseTest {
 
     LoginPage loginPage = new LoginPage();
     MainPage mainPage = new MainPage();
+    SıfremıUnuttumPage sıfremıUnuttumPage = new SıfremıUnuttumPage();
 
     @Test
     public void BasariliGiris() {
@@ -33,8 +37,8 @@ public class LoginTests extends BaseTest {
     public void BosKarakterKontrolu() {
         loginPage.clickLoginButton();
         List<String> hatalar = loginPage.getAllErrorText();
-        Assert.assertEquals(hatalar.get(0), "Geçerli bir e-posta adresi girmelisin.");
-        Assert.assertEquals(hatalar.get(1), "Şifreni girebilir misin?");
+        assertEquals(hatalar.get(0), "Geçerli bir e-posta adresi girmelisin.");
+        assertEquals(hatalar.get(1), "Şifreni girebilir misin?");
         /*String eksikGirisText = driver.findElements(By.cssSelector("[class='errorText']")).get(0).getText();
         Assert.assertEquals(eksikGirisText, "Geçerli bir e-posta adresi girmelisin.");
         String eksikGirisText2 = driver.findElements(By.cssSelector("[class='errorText']")).get(1).getText();
@@ -76,6 +80,44 @@ public class LoginTests extends BaseTest {
         //driver.findElement(By.id("email")).sendKeys(email);
         //driver.findElement(By.id("password")).sendKeys(password);
         //driver.findElement(By.cssSelector("[class='btnPrimary']")).click();
+        sleep(3);
+        assertEquals(mainPage.getAccountInfo(), "Hesabım");
+    }
+
+    @Test
+    public void EmailValidationKontrolu(){
+        loginPage.sendKeysEmail("nurhayatdayal")
+                .sendKeysPassword(password);
+        List<String> hatalar = loginPage.getAllErrorText();
+        assertEquals(hatalar.get(0),"Geçerli bir e-posta adresi girmelisin.");
+    }
+
+    @Test
+    public void SıfremıUnuttumKontrolu(){
+        loginPage.clickSıfremıUnuttumButton();
+        sleep(3);
+        assertEquals(driver.getCurrentUrl(), "https://www.n11.com/sifremiunuttum/mailgonder");
+        sıfremıUnuttumPage.sendKeysEmail(email)
+                .clickDevamEtButton();
+        sleep(3);
+        assertEquals(sıfremıUnuttumPage.getMailInfo(),"E-postanı gönderdik!");
+    }
+
+    @Test
+    public void SıfreMaskeleemKontrolu(){
+        loginPage.sendKeysEmail(email)
+                .sendKeysPassword(password);
+        assertEquals(loginPage.getMaskeInfo(),"password");
+        loginPage.clickMaskeButton();
+        assertEquals(loginPage.getMaskeInfo(),"text");
+    }
+
+    @Test
+    @Browser("edge")
+    public void BasariliGirisEdge() {
+        loginPage.sendKeysEmail(email)
+                .sendKeysPassword(password)
+                .clickLoginButton();
         sleep(3);
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }

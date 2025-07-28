@@ -23,6 +23,11 @@ public class LoginPage extends BaseTest {
         return this;
     }
 
+    public LoginPage clickSıfremıUnuttumButton(){
+        driver.findElement(By.cssSelector("[class='forgotPassword']")).click();
+        return this;
+    }
+
     public String getErrorMessage(){
         String hataGirisText = driver.findElement(By.cssSelector("[class='error-message']")).getText();
         return hataGirisText;
@@ -41,6 +46,16 @@ public class LoginPage extends BaseTest {
         for (String text : texts) {
             driver.findElement(By.id(text)).clear();
         }
+        return this;
+    }
+
+    public String getMaskeInfo(){
+        String hesapText = driver.findElement(By.id("password")).getAttribute("type");
+        return hesapText;
+    }
+
+    public LoginPage clickMaskeButton(){
+        driver.findElement(By.cssSelector("[class='toggle-password showInput']")).click();
         return this;
     }
 }

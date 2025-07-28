@@ -28,5 +28,11 @@
       <version>7.11.0</version>
       <scope>compile</scope>
     </dependency>
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.5.1</version>
+    </dependency>
   </dependencies>
 </project>
