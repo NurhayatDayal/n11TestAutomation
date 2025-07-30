@@ -40,6 +40,7 @@ public class BaseTest extends BaseLibrary {
         }
 
         driver.manage().window().setSize(new Dimension(1920, 1080));
+        System.out.println("Window size: " + driver.manage().window().getSize());
         driver.get(url);
     }
 
