@@ -7,7 +7,9 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -19,7 +21,7 @@ public class BaseTest extends BaseLibrary {
 
     @BeforeMethod
     @Step("Seçilen browserda sayfa açılır.")
-    public void OpenBrowser(Method method){
+   /* public void OpenBrowser(Method method){
        // driver = new ChromeDriver();
         String browser = "chrome"; // default
 
@@ -42,8 +44,47 @@ public class BaseTest extends BaseLibrary {
         driver.manage().window().setSize(new Dimension(1920, 1080));
         System.out.println("Window size: " + driver.manage().window().getSize());
         driver.get(url);
-    }
+    }*/
+   public void OpenBrowser(Method method){
+        String browser = "chrome"; // default
 
+// Test metodunda @Browser varsa değerini al
+        if (method.isAnnotationPresent(Browser.class)) {
+            Browser browserAnnotation = method.getAnnotation(Browser.class);
+            browser = browserAnnotation.value().toLowerCase();
+        }
+
+        switch (browser) {
+            case "edge":
+                System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
+
+                EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.addArguments("--headless=new");
+                edgeOptions.addArguments("--disable-gpu");
+                edgeOptions.addArguments("--window-size=1920,1080");
+
+                driver = new EdgeDriver(edgeOptions);
+                break;
+
+            case "chrome":
+            default:
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                chromeOptions.addArguments("--disable-gpu");
+                chromeOptions.addArguments("--window-size=1920,1080");
+
+                driver = new ChromeDriver(chromeOptions);
+                break;
+        }
+
+// Eğer window-size headless'te işe yaramazsa, yine de setSize ile zorla ayarla:
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+
+        System.out.println("Window size: " + driver.manage().window().getSize());
+
+        driver.get(url);
+
+    }
     @AfterMethod
     public void CloseBrowser(){
         driver.quit();
