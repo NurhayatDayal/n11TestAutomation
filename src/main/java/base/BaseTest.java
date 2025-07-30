@@ -35,32 +35,24 @@ public class BaseTest extends BaseLibrary {
 
         switch (browser) {
             case "edge":
-
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
-                EdgeOptions options = new EdgeOptions();
-                options.addArguments("--window-size=1920,1080");
-
-                driver = new EdgeDriver(options);
+                driver = new EdgeDriver();
                 break;
             case "chrome":
             default:
-                ChromeOptions optionsChrome = new ChromeOptions();
-                //optionsChrome.addArguments("--headless=new");
-                optionsChrome.addArguments("--window-size=1920,1080");
-                driver = new ChromeDriver(optionsChrome);
-              //  driver = new ChromeDriver();
+                driver = new ChromeDriver();
         }
 
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-        System.out.println("Window size: " + driver.manage().window().getSize());
+        //driver.manage().window().setSize(new Dimension(1920, 1080));
         //2a7d83f8-effc-496f-ab9f-ed6840f0a847
-
+        driver.manage().window().maximize();
+        System.out.println("Window size: " + driver.manage().window().getSize());
         //JavascriptExecutor js = (JavascriptExecutor) driver;
         //js.executeScript("document.querySelector('.cookie-banner').style.display='none';");
         driver.get(url);
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("var banner = document.getElementById('4eba3a1a-2804-4d0b-bcb0-1d7b38f7b8c9'); if(banner) { banner.style.display = 'none'; }");
+
+
     }
    /*public void OpenBrowser(Method method){
         String browser = "chrome"; // default
@@ -103,8 +95,8 @@ public class BaseTest extends BaseLibrary {
 
     }*/
 
-   // @AfterMethod
-    //public void CloseBrowser(){
-        //driver.quit();
-    //}
+    @AfterMethod
+    public void CloseBrowser(){
+        driver.quit();
+    }
 }
