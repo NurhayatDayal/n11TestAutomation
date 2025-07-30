@@ -1,9 +1,8 @@
 import Pages.LoginPage;
 import Pages.MainPage;
-import Pages.SıfremıUnuttumPage;
+import Pages.SifremiUnuttumPage;
 import base.BaseTest;
 import base.Browser;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import java.util.List;
 import org.testng.annotations.Test;
@@ -13,9 +12,9 @@ public class LoginTests extends BaseTest {
 
     LoginPage loginPage = new LoginPage();
     MainPage mainPage = new MainPage();
-    SıfremıUnuttumPage sıfremıUnuttumPage = new SıfremıUnuttumPage();
+    SifremiUnuttumPage sifremiUnuttumPage = new SifremiUnuttumPage();
 
-    @Test
+    @Test (description = "TC001 - Başarılı Kullanıcı Girişi")
     public void BasariliGiris() {
         loginPage.sendKeysEmail(email)
                 .sendKeysPassword(password)
@@ -24,7 +23,7 @@ public class LoginTests extends BaseTest {
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
 
-    @Test
+    @Test (description = "TC002 - Hatalı Kullanıcı Girişi")
     public void BasarisizGiris() {
         loginPage.sendKeysEmail(email)
                 .sendKeysPassword("kalem25")
@@ -33,7 +32,7 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getErrorMessage(), "E-posta adresi veya şifre hatalı, kontrol edebilir misin?");
     }
 
-    @Test
+    @Test (description = "TC003 - Boş Karakter Kontrolü")
     public void BosKarakterKontrolu() {
         loginPage.clickLoginButton();
         List<String> hatalar = loginPage.getAllErrorText();
@@ -58,7 +57,7 @@ public class LoginTests extends BaseTest {
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
 
-    @Test
+    @Test (description = "TC004 - Minimum Karakter Kontrolü")
     public void MinKarakterKontrolu() {
         loginPage.sendKeysEmail("n").sendKeysPassword("k").clickLoginButton();
         //driver.findElement(By.id("email")).sendKeys("n");
@@ -84,7 +83,7 @@ public class LoginTests extends BaseTest {
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
 
-    @Test
+    @Test (description = "TC005 - Email Validation Kontrolü")
     public void EmailValidationKontrolu(){
         loginPage.sendKeysEmail("nurhayatdayal")
                 .sendKeysPassword(password);
@@ -92,18 +91,18 @@ public class LoginTests extends BaseTest {
         assertEquals(hatalar.get(0),"Geçerli bir e-posta adresi girmelisin.");
     }
 
-    @Test
+    @Test (description = "TC006 - Şifremi Unuttum Kontrolü")
     public void SıfremıUnuttumKontrolu(){
         loginPage.clickSıfremıUnuttumButton();
         sleep(3);
         assertEquals(driver.getCurrentUrl(), "https://www.n11.com/sifremiunuttum/mailgonder");
-        sıfremıUnuttumPage.sendKeysEmail(email)
+        sifremiUnuttumPage.sendKeysEmail(email)
                 .clickDevamEtButton();
         sleep(3);
-        assertEquals(sıfremıUnuttumPage.getMailInfo(),"E-postanı gönderdik!");
+        assertEquals(sifremiUnuttumPage.getMailInfo(),"E-postanı gönderdik!");
     }
 
-    @Test
+    @Test (description = "TC007 - Şifre Maskeleme Kontrolü")
     public void SıfreMaskeleemKontrolu(){
         loginPage.sendKeysEmail(email)
                 .sendKeysPassword(password);
@@ -112,7 +111,7 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getMaskeInfo(),"text");
     }
 
-    @Test
+    @Test (description = "TC008 - Başarılı Kullanıcı Girişi (browser = edge)")
     @Browser("edge")
     public void BasariliGirisEdge() {
         loginPage.sendKeysEmail(email)

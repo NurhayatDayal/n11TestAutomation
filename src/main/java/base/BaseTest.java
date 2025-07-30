@@ -3,6 +3,7 @@ package base;
 import data.Data;
 import base.Browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,9 +14,10 @@ import java.lang.reflect.Method;
 
 public class BaseTest extends BaseLibrary {
 
-    public static WebDriver driver;
+
 
     @BeforeMethod
+    @Step("Seçilen browserda sayfa açılır.")
     public void OpenBrowser(Method method){
        // driver = new ChromeDriver();
         String browser = "chrome"; // default

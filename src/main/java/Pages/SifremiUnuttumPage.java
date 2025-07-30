@@ -1,19 +1,24 @@
 package Pages;
 
 import base.BaseTest;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-public class SıfremıUnuttumPage extends BaseTest {
+public class SifremiUnuttumPage extends BaseTest {
 
-    public SıfremıUnuttumPage clickDevamEtButton (){
+    @Step("Devam Et butonuna tıklanır.")
+    public SifremiUnuttumPage clickDevamEtButton (){
         driver.findElement(By.cssSelector("[class='btnPrimary forgot-password-button']")).click();
         return this;
     }
 
-    public SıfremıUnuttumPage sendKeysEmail (String email){
+    @Step("Email alanı doldurulur.")
+    public SifremiUnuttumPage sendKeysEmail (String email){
         driver.findElement(By.id("forgottenUserEmail")).sendKeys(email);
         return this;
     }
+
+    @Step("Mail alanı doldurulur.")
     public String getMailInfo(){
         String hesapText = driver.findElement(By.cssSelector("[class='info-content-title']")).getText();
         return hesapText;
