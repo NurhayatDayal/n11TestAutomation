@@ -59,7 +59,7 @@ public class BaseTest extends BaseLibrary {
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
 
                 EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--headless=new");
+                //edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
 
@@ -69,7 +69,7 @@ public class BaseTest extends BaseLibrary {
             case "chrome":
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless=new");
+               // chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--window-size=1920,1080");
 
