@@ -59,7 +59,7 @@ public class BaseTest extends BaseLibrary {
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
 
                 EdgeOptions edgeOptions = new EdgeOptions();
-                //edgeOptions.addArguments("--headless=new");
+                edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--disable-gpu");
                 edgeOptions.addArguments("--window-size=1920,1080");
 
@@ -69,7 +69,7 @@ public class BaseTest extends BaseLibrary {
             case "chrome":
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
-               // chromeOptions.addArguments("--headless=new");
+                chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--window-size=1920,1080");
 
@@ -79,7 +79,7 @@ public class BaseTest extends BaseLibrary {
 
 // Eğer window-size headless'te işe yaramazsa, yine de setSize ile zorla ayarla:
         driver.manage().window().setSize(new Dimension(1920, 1080));
-
+        sleep(15);
         System.out.println("Window size: " + driver.manage().window().getSize());
 
         driver.get(url);
