@@ -72,4 +72,5 @@ public class LoginPage extends BaseTest {
         driver.findElement(By.cssSelector("[class='toggle-password showInput']")).click();
         return this;
     }
+    
 }
