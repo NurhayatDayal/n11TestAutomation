@@ -5,6 +5,7 @@ import base.Browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,7 +22,7 @@ public class BaseTest extends BaseLibrary {
 
     @BeforeMethod
     @Step("Seçilen browserda sayfa açılır.")
-   /* public void OpenBrowser(Method method){
+    public void OpenBrowser(Method method){
        // driver = new ChromeDriver();
         String browser = "chrome"; // default
 
@@ -43,9 +44,11 @@ public class BaseTest extends BaseLibrary {
 
         driver.manage().window().setSize(new Dimension(1920, 1080));
         System.out.println("Window size: " + driver.manage().window().getSize());
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('.cookie-banner').style.display='none';");
         driver.get(url);
-    }*/
-   public void OpenBrowser(Method method){
+    }
+   /*public void OpenBrowser(Method method){
         String browser = "chrome"; // default
 
 // Test metodunda @Browser varsa değerini al
@@ -84,7 +87,8 @@ public class BaseTest extends BaseLibrary {
 
         driver.get(url);
 
-    }
+    }*/
+
     @AfterMethod
     public void CloseBrowser(){
         driver.quit();
