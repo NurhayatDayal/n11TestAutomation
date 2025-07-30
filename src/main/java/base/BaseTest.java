@@ -4,6 +4,7 @@ import data.Data;
 import base.Browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -44,9 +45,14 @@ public class BaseTest extends BaseLibrary {
 
         driver.manage().window().setSize(new Dimension(1920, 1080));
         System.out.println("Window size: " + driver.manage().window().getSize());
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.querySelector('.cookie-banner').style.display='none';");
+        //2a7d83f8-effc-496f-ab9f-ed6840f0a847
+
+        //JavascriptExecutor js = (JavascriptExecutor) driver;
+        //js.executeScript("document.querySelector('.cookie-banner').style.display='none';");
         driver.get(url);
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("var banner = document.getElementById('4eba3a1a-2804-4d0b-bcb0-1d7b38f7b8c9'); if(banner) { banner.style.display = 'none'; }");
     }
    /*public void OpenBrowser(Method method){
         String browser = "chrome"; // default
@@ -89,8 +95,8 @@ public class BaseTest extends BaseLibrary {
 
     }*/
 
-    @AfterMethod
-    public void CloseBrowser(){
-        driver.quit();
-    }
+   // @AfterMethod
+    //public void CloseBrowser(){
+        //driver.quit();
+    //}
 }
