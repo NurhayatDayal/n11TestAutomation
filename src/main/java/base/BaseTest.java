@@ -35,12 +35,20 @@ public class BaseTest extends BaseLibrary {
 
         switch (browser) {
             case "edge":
+
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
-                driver = new EdgeDriver();
+                EdgeOptions options = new EdgeOptions();
+                options.addArguments("--window-size=1920,1080");
+
+                driver = new EdgeDriver(options);
                 break;
             case "chrome":
             default:
-                driver = new ChromeDriver();
+                ChromeOptions optionsChrome = new ChromeOptions();
+                //optionsChrome.addArguments("--headless=new");
+                optionsChrome.addArguments("--window-size=1920,1080");
+                driver = new ChromeDriver(optionsChrome);
+              //  driver = new ChromeDriver();
         }
 
         driver.manage().window().setSize(new Dimension(1920, 1080));
