@@ -63,7 +63,7 @@ public class BaseTest extends BaseLibrary {
         driver.get(url);
         sleep(5);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.querySelector('.cookie-banner').display='none';");
+        js.executeScript("document.querySelector('.cookie-banner')='none';");
 
 
 
