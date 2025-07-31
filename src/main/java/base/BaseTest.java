@@ -57,7 +57,7 @@ public class BaseTest extends BaseLibrary {
         //driver.manage().window().setSize(new Dimension(1920, 1080));
         //2a7d83f8-effc-496f-ab9f-ed6840f0a847
        // driver.manage().window().maximize();
-        driver.manage().window().setSize(new Dimension(1920, 1080));
+        //driver.manage().window().setSize(new Dimension(1920, 1080));
         driver.manage().window().maximize();
         System.out.println("Window size: " + driver.manage().window().getSize());
         //JavascriptExecutor js = (JavascriptExecutor) driver;
