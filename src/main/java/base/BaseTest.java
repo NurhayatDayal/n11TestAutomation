@@ -36,11 +36,22 @@ public class BaseTest extends BaseLibrary {
         switch (browser) {
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
-                driver = new EdgeDriver();
+                EdgeOptions options = new EdgeOptions();
+                options.addArguments("--window-size=1920,1080"); // Ekranı büyütür
+// Headless moddaysa:
+                options.addArguments("--headless=new");
+                driver = new EdgeDriver(options);
+
+                //driver = new EdgeDriver();
                 break;
             case "chrome":
             default:
-                driver = new ChromeDriver();
+                ChromeOptions options2 = new ChromeOptions();
+                options2.addArguments("--window-size=1920,1080"); // Ekranı büyütür
+// Headless modda çalışıyorsan bunu da ekle:
+                options2.addArguments("--headless=new");
+                driver = new ChromeDriver(options2);
+                //driver = new ChromeDriver();
         }
 
         //driver.manage().window().setSize(new Dimension(1920, 1080));
