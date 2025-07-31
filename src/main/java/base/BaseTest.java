@@ -37,7 +37,7 @@ public class BaseTest extends BaseLibrary {
             case "edge":
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\msedgedriver.exe");
                 EdgeOptions options = new EdgeOptions();
-                options.addArguments("--window-size=1920,1080"); // Ekranı büyütür
+                options.addArguments("--window-size=1800,900"); // Ekranı büyütür
 // Headless moddaysa:
                // options.addArguments("--headless=new");
                 driver = new EdgeDriver(options);
@@ -47,7 +47,7 @@ public class BaseTest extends BaseLibrary {
             case "chrome":
             default:
                 ChromeOptions options2 = new ChromeOptions();
-                options2.addArguments("--window-size=1920,1080"); // Ekranı büyütür
+                options2.addArguments("--window-size=1800,900"); // Ekranı büyütür
 // Headless modda çalışıyorsan bunu da ekle:
                // options2.addArguments("--headless=new");
                 driver = new ChromeDriver(options2);
@@ -61,12 +61,6 @@ public class BaseTest extends BaseLibrary {
         //JavascriptExecutor js = (JavascriptExecutor) driver;
         //js.executeScript("document.querySelector('.cookie-banner').style.display='none';");
         driver.get(url);
-        sleep(5);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("document.querySelector('.cookie-banner')='none';");
-
-
-
     }
    /*public void OpenBrowser(Method method){
         String browser = "chrome"; // default
