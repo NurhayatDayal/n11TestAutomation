@@ -11,12 +11,12 @@ public class BaseTest extends BaseLibrary {
     @Step("Seçilen browserda sayfa açılır.")
     public void OpenBrowser(){
         driver = new ChromeDriver();
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.get(url);
     }
 
-   /* @AfterMethod
+    @AfterMethod
     public void CloseBrowser(){
         driver.quit();
-    }*/
+    }
 }
