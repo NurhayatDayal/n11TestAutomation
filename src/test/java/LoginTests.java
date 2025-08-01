@@ -18,8 +18,6 @@ public class LoginTests extends BaseTest {
 
     @Test (description = "TC001 - Başarılı Kullanıcı Girişi")
     public void BasariliGiris() {
-        //((JavascriptExecutor) driver).executeScript("let e=document.querySelector('efilli-layout-dynamic'); if(e) e.style.display='none';");
-
         loginPage.sendKeysEmail(email)
                 .sendKeysPassword(password).
                 rollDown().
@@ -45,23 +43,14 @@ public class LoginTests extends BaseTest {
         List<String> hatalar = loginPage.getAllErrorText();
         assertEquals(hatalar.get(0), "Geçerli bir e-posta adresi girmelisin.");
         assertEquals(hatalar.get(1), "Şifreni girebilir misin?");
-        /*String eksikGirisText = driver.findElements(By.cssSelector("[class='errorText']")).get(0).getText();
-        Assert.assertEquals(eksikGirisText, "Geçerli bir e-posta adresi girmelisin.");
-        String eksikGirisText2 = driver.findElements(By.cssSelector("[class='errorText']")).get(1).getText();
-        Assert.assertEquals(eksikGirisText2, "Şifreni girebilir misin?");*/
         loginPage.sendKeysEmail(email)
                 .rollDown()
                 .clickLoginButton();
-        //driver.findElement(By.cssSelector("[class='btnPrimary']")).click();
-        //String eksikGirisText1 = driver.findElements(By.cssSelector("[class='errorText']")).get(1).getText();
-        //Assert.assertEquals(eksikGirisText1, "Şifreni girebilir misin?");
         Assert.assertEquals(hatalar.get(1), "Şifreni girebilir misin?");
         sleep(2);
         loginPage.sendKeysPassword(password)
                 .rollDown()
                 .clickLoginButton();
-        //driver.findElement(By.id("password")).sendKeys(password);
-        //driver.findElement(By.cssSelector("[class='btnPrimary']")).click();
         sleep(3);
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
@@ -72,26 +61,15 @@ public class LoginTests extends BaseTest {
                 .sendKeysPassword("k")
                 .rollDown()
                 .clickLoginButton();
-        //driver.findElement(By.id("email")).sendKeys("n");
-        //driver.findElement(By.id("password")).sendKeys("k");
-        //driver.findElement(By.cssSelector("[class='btnPrimary']")).click();
         List<String> hatalar = loginPage.getAllErrorText();
         Assert.assertEquals(hatalar.get(0), "Geçerli bir e-posta adresi girmelisin.");
         Assert.assertEquals(hatalar.get(1), "Girilen değer en az 6 karakter olmalıdır.");
-        //String azGirisText = driver.findElements(By.cssSelector("[class='errorText']")).get(0).getText();
-        //Assert.assertEquals(azGirisText, "Geçerli bir e-posta adresi girmelisin.");
-        //String azGirisText2 = driver.findElements(By.cssSelector("[class='errorText']")).get(1).getText();
-        //Assert.assertEquals(azGirisText2, "Girilen değer en az 6 karakter olmalıdır.");
         loginPage.clearBox("email")
                 .clearBox("password");
-        //driver.findElement(By.id("password")).clear();
         loginPage.sendKeysEmail(email)
                 .sendKeysPassword(password)
                 .rollDown()
                 .clickLoginButton();
-        //driver.findElement(By.id("email")).sendKeys(email);
-        //driver.findElement(By.id("password")).sendKeys(password);
-        //driver.findElement(By.cssSelector("[class='btnPrimary']")).click();
         sleep(3);
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
