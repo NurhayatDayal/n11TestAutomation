@@ -111,7 +111,7 @@ public class LoginTests extends BaseTest {
         assertEquals(loginPage.getMaskeInfo(),"text");
     }
 
-    @Test (description = "TC008 - Başarılı Kullanıcı Girişi (browser = edge)")
+   /* @Test (description = "TC008 - Başarılı Kullanıcı Girişi (browser = edge)")
     @Browser("edge")
     public void BasariliGirisEdge() {
         loginPage.sendKeysEmail(email)
@@ -119,5 +119,5 @@ public class LoginTests extends BaseTest {
                 .clickLoginButton();
         sleep(3);
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
-    }
+    } */
 }

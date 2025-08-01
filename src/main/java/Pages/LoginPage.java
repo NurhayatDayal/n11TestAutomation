@@ -25,7 +25,7 @@ public class LoginPage extends BaseTest {
 
     @Step("Login butonuna tıklanır.")
     public LoginPage clickLoginButton (){
-        driver.findElement(By.cssSelector("[class='btnPrimary']")).click();
+        driver.findElement(By.id("loginButton")).click();
         return this;
     }
 
