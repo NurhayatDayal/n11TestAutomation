@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 public class BaseTest extends BaseLibrary {
 
     @BeforeMethod
-    @Step("Seçilen browserda sayfa açılır.")
     public void OpenBrowser(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
