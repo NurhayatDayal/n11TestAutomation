@@ -46,11 +46,12 @@ public class BaseTest extends BaseLibrary {
                 break;
             case "chrome":
             default:
-                ChromeOptions options2 = new ChromeOptions();
+
                // options2.addArguments("--window-size=1920,1080"); // Ekranı büyütür
 // Headless modda çalışıyorsan bunu da ekle:
                // options2.addArguments("--headless=new");
-                driver = new ChromeDriver(options2);
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
                 //driver = new ChromeDriver();
         }
 
@@ -58,7 +59,7 @@ public class BaseTest extends BaseLibrary {
         //2a7d83f8-effc-496f-ab9f-ed6840f0a847
        // driver.manage().window().maximize();
         //driver.manage().window().setSize(new Dimension(1920, 1080));
-        driver.manage().window().maximize();
+       // driver.manage().window().maximize();
         System.out.println("Window size: " + driver.manage().window().getSize());
         //JavascriptExecutor js = (JavascriptExecutor) driver;
         //js.executeScript("document.querySelector('.cookie-banner').style.display='none';");

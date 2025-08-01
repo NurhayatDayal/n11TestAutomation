@@ -17,8 +17,9 @@ public class LoginTests extends BaseTest {
     @Test (description = "TC001 - Başarılı Kullanıcı Girişi")
     public void BasariliGiris() {
         loginPage.sendKeysEmail(email)
-                .sendKeysPassword(password)
-                .clickLoginButton();
+                .sendKeysPassword(password);
+        sleep(5);
+        loginPage.clickLoginButton();
         sleep(3);
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
