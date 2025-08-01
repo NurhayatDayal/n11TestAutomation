@@ -2,7 +2,6 @@ import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.SifremiUnuttumPage;
 import base.BaseTest;
-import base.Browser;
 import org.testng.Assert;
 import java.util.List;
 import org.testng.annotations.Test;
