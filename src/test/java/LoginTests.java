@@ -2,6 +2,8 @@ import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.SifremiUnuttumPage;
 import base.BaseTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import java.util.List;
 import org.testng.annotations.Test;

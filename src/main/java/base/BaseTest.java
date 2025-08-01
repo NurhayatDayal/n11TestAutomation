@@ -15,8 +15,8 @@ public class BaseTest extends BaseLibrary {
         driver.get(url);
     }
 
-    @AfterMethod
+   /* @AfterMethod
     public void CloseBrowser(){
         driver.quit();
-    }
+    }*/
 }
