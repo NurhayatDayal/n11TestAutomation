@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -70,6 +71,11 @@ public class LoginPage extends BaseTest {
     @Step("Şifre Maskeleme İconuna Tıklanır.")
     public LoginPage clickMaskeButton(){
         driver.findElement(By.cssSelector("[class='toggle-password showInput']")).click();
+        return this;
+    }
+
+    public LoginPage rollDown(){
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
         return this;
     }
     

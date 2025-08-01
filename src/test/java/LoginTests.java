@@ -4,6 +4,7 @@ import Pages.SifremiUnuttumPage;
 import base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import java.util.List;
 import org.testng.annotations.Test;
@@ -17,10 +18,12 @@ public class LoginTests extends BaseTest {
 
     @Test (description = "TC001 - Başarılı Kullanıcı Girişi")
     public void BasariliGiris() {
+        //((JavascriptExecutor) driver).executeScript("let e=document.querySelector('efilli-layout-dynamic'); if(e) e.style.display='none';");
+
         loginPage.sendKeysEmail(email)
-                .sendKeysPassword(password);
-        sleep(5);
-        loginPage.clickLoginButton();
+                .sendKeysPassword(password).
+                rollDown().
+                clickLoginButton();
         sleep(3);
         assertEquals(mainPage.getAccountInfo(), "Hesabım");
     }
