@@ -1,0 +1,8 @@
+"DESCRİPTİON,""DURATİON İN MS"",""NAME"",""PARENT SUİTE"",""START TİME"",""STATUS"",""STOP TİME"",""SUB SUİTE"",""SUİTE"",""TEST CLASS"",""TEST METHOD"""
+",""5755"",""TC001 - Başarılı Kullanıcı Girişi"",""Surefire suite"",""Fri Aug 01 19:14:10 TRT 2025"",""passed"",""Fri Aug 01 19:14:16 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""BasariliGiris"""
+",""396"",""TC007 - Şifre Maskeleme Kontrolü"",""Surefire suite"",""Fri Aug 01 19:15:06 TRT 2025"",""passed"",""Fri Aug 01 19:15:06 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""SıfreMaskeleemKontrolu"""
+",""419"",""TC005 - Email Validation Kontrolü"",""Surefire suite"",""Fri Aug 01 19:14:48 TRT 2025"",""passed"",""Fri Aug 01 19:14:48 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""EmailValidationKontrolu"""
+",""4000"",""TC004 - Minimum Karakter Kontrolü"",""Surefire suite"",""Fri Aug 01 19:14:55 TRT 2025"",""passed"",""Fri Aug 01 19:14:59 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""MinKarakterKontrolu"""
+",""7451"",""TC003 - Boş Karakter Kontrolü"",""Surefire suite"",""Fri Aug 01 19:14:33 TRT 2025"",""passed"",""Fri Aug 01 19:14:41 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""BosKarakterKontrolu"""
+",""4080"",""TC002 - Hatalı Kullanıcı Girişi"",""Surefire suite"",""Fri Aug 01 19:14:23 TRT 2025"",""passed"",""Fri Aug 01 19:14:27 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""BasarisizGiris"""
+",""6902"",""TC006 - Şifremi Unuttum Kontrolü"",""Surefire suite"",""Fri Aug 01 19:15:13 TRT 2025"",""passed"",""Fri Aug 01 19:15:20 TRT 2025"",""LoginTests"",""Surefire test"",""LoginTests"",""SıfremıUnuttumKontrolu"""

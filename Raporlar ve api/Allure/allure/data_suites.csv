@@ -1,0 +1,8 @@
+"DESCRİPTİON","DURATİON İN MS","NAME","PARENT SUİTE","START TİME","STATUS","STOP TİME","SUB SUİTE","SUİTE","TEST CLASS","TEST METHOD"
+"","453","TC005 - Email Validation Kontrolü","Default Suite","Fri Aug 01 20:53:47 TRT 2025","passed","Fri Aug 01 20:53:47 TRT 2025","LoginTests","n11TestAutomation","LoginTests","EmailValidationKontrolu"
+"","6260","TC003 - Boş Karakter Kontrolü","Default Suite","Fri Aug 01 20:53:36 TRT 2025","passed","Fri Aug 01 20:53:42 TRT 2025","LoginTests","n11TestAutomation","LoginTests","BosKarakterKontrolu"
+"","443","TC007 - Şifre Maskeleme Kontrolü","Default Suite","Fri Aug 01 20:54:04 TRT 2025","passed","Fri Aug 01 20:54:05 TRT 2025","LoginTests","n11TestAutomation","LoginTests","SıfreMaskeleemKontrolu"
+"","5494","TC001 - Başarılı Kullanıcı Girişi","Default Suite","Fri Aug 01 20:53:15 TRT 2025","passed","Fri Aug 01 20:53:20 TRT 2025","LoginTests","n11TestAutomation","LoginTests","BasariliGiris"
+"","5667","TC004 - Minimum Karakter Kontrolü","Default Suite","Fri Aug 01 20:53:52 TRT 2025","passed","Fri Aug 01 20:53:57 TRT 2025","LoginTests","n11TestAutomation","LoginTests","MinKarakterKontrolu"
+"","4265","TC002 - Hatalı Kullanıcı Girişi","Default Suite","Fri Aug 01 20:53:27 TRT 2025","passed","Fri Aug 01 20:53:31 TRT 2025","LoginTests","n11TestAutomation","LoginTests","BasarisizGiris"
+"","6884","TC006 - Şifremi Unuttum Kontrolü","Default Suite","Fri Aug 01 20:54:09 TRT 2025","passed","Fri Aug 01 20:54:16 TRT 2025","LoginTests","n11TestAutomation","LoginTests","SıfremıUnuttumKontrolu"
